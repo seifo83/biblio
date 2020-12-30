@@ -1,12 +1,11 @@
 import React from "react";
+import TitreH1 from "./components/Titres/TitreH1";
 
 function App() {
   return (
     <>
-       <div className="alert alert-success" role="alert">
-        Bootstrap est opérationnel
-      </div>
-      <h1>Titre</h1>
+       
+      <TitreH1>Page Listant les livres</TitreH1>
       <p>Livres</p>
       <button type="submit"> Ajouter </button>
 
