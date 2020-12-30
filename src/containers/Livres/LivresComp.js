@@ -1,5 +1,5 @@
 import React, {Component}  from 'react';
-import Botton from  "../../components/Bouton/BottonComp";
+import LivreComp from '../../components/Livre/LivreComp'
 
 
 
@@ -32,12 +32,15 @@ class LivCompt extends Component {
                          {
                               this.state.livres.map(livre => {
                                    return(
-                                        <tr>
-                                             <td>{livre.titre}</td>
-                                             <td>{livre.auteur}</td>
-                                             <td>{livre.nbPages}</td>
-                                             <td><Botton typeBtn ="btn-warning" clic = {()=> alert(" l'effet la fonction de clic modifier")}>Modifier</Botton></td>
-                                             <td><Botton typeBtn ="btn-danger" clic = {()=> alert(" l'effet la fonction de clic supprimer")}>Supprimer</Botton></td>
+                                        <tr key={livre.id}>
+                                             <LivreComp>
+                                                  titre = {livre.titre}
+                                                  auteur = {livre.auteur}
+                                                  nbPage = {livre.nbPage}
+
+                                             </LivreComp>
+
+                                            
                                         </tr>
                                    );
                               })
