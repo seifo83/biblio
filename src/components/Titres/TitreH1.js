@@ -1,6 +1,6 @@
 import React from 'react';
 
-
+import classes from "./TitreH1.module.css"
 //méthode 1: 
 
 // const titreH1 = (props) => {
@@ -20,7 +20,7 @@ import React from 'react';
 // la fonction sera modifier comme à la 1ere méthode 
 
 const titreH1 = (props) => {
-   const monCss = `border border-dark p-2 m-2 text-white text-center bg-primary rounded`
+   const monCss = `${classes.policeTitre} border border-dark p-2 m-2 text-white text-center bg-primary rounded`
     return (
         <h1 className={monCss}>{props.children}</h1>
     );
