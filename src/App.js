@@ -8,7 +8,7 @@ function App() {
     <>
        
       <TitreH1>Page Listant les livres</TitreH1>
-      <LivresComp></LivresComp>
+      <LivresComp> </LivresComp>
       <Botton typeBtn ="btn-success" sizeBtn="w-100" clic = {()=> alert(" l'effet la fonction de clic du btn ajoute")}>Ajouter</Botton>
 
       

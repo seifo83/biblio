@@ -15,6 +15,22 @@ class LivCompt extends Component {
           ]
       }
 
+
+      handleDeleteLivre = (id) => {
+           //console.log("suppression" + id);
+           const livreInxdexTab = this.state.livres.findIndex(ligne =>{
+                return ligne.id === id;
+
+           })
+
+           //console.log(livreInxdexTab);
+
+           const newlivres = [...this.state.livres];
+           newlivres.splice(livreInxdexTab, 1);
+
+           this.setState({livres:newlivres});
+      }
+
       render(){
             return( 
 
@@ -33,12 +49,13 @@ class LivCompt extends Component {
                               this.state.livres.map(livre => {
                                    return(
                                         <tr key={livre.id}>
-                                             <LivreComp>
+                                             <LivreComp
                                                   titre = {livre.titre}
                                                   auteur = {livre.auteur}
                                                   nbPage = {livre.nbPage}
+                                                  suppression = {() => this.handleDeleteLivre(livre.id)}
 
-                                             </LivreComp>
+                                             />
 
                                             
                                         </tr>
@@ -55,3 +72,4 @@ class LivCompt extends Component {
 }
 
 export default LivCompt;
+
