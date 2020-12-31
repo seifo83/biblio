@@ -1,5 +1,6 @@
 import React, {Component}  from 'react';
-import LivreComp from '../../components/Livre/LivreComp'
+import LivreComp from '../../components/Livre/LivreComp';
+import FormulairAjout from '../Formulaire/FormulairAjout';
 
 
 
@@ -65,6 +66,8 @@ class LivCompt extends Component {
 
                     </tbody>
                </table>
+
+               { !this.props.InfoAjoutLivre  && <FormulairAjout />}
           </>
 
              );

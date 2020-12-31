@@ -20,7 +20,7 @@ class App extends Component {
       return( 
         <>
           <TitreH1>Page Listant les livres</TitreH1>
-          <LivresComp> </LivresComp>
+          <LivresComp InfoAjoutLivre= {this.state.ajoutLivre}/>
           <Botton 
             typeBtn ="btn-success" 
             sizeBtn="w-100" 
