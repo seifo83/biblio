@@ -52,6 +52,8 @@ class LivCompt extends Component {
                     }
                });
 
+               this.props.FermerFormuliare();
+
       }
 
 
@@ -60,8 +62,8 @@ class LivCompt extends Component {
 
                <>
                <div className="row justify-content-center">
-                    <div className="col-8">
-                         <table className= "table table-responsive text-center">
+                    <div className="col">
+                         <table className= "table text-center">
                               <thead className="thead-dark" >
                                    <tr>
                                         <th>Titre</th>

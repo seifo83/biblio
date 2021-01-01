@@ -21,7 +21,7 @@ class App extends Component {
         <>
           <div className="container">
             <TitreH1>Page Listant les livres</TitreH1>
-            <LivresComp InfoAjoutLivre= {this.state.ajoutLivre}/>
+            <LivresComp InfoAjoutLivre= {this.state.ajoutLivre} FermerFormuliare= {()=> this.setState({ajoutLivre:false})}/>
             <Botton 
               typeBtn ="btn-success" 
               sizeBtn="w-100" 

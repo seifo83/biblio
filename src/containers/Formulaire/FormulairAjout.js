@@ -7,12 +7,19 @@ class FormulairAdd extends Component {
      state = {
           titreSaisi: "",
           auteurSaisi: "",
-          nbPagesSaisi: ""
+          nbPagesSaisi: "",
+
      }
      handelValidationForm = (event) => {
           event.preventDefault();
           console.log(this.state.titreSaisi + " " + this.state.auteurSaisi + " " + this.state.nbPagesSaisi   );
-          this.props.recuperLivre(this.state.titreSaisi, this.state.auteurSaisi, this.state.nbPagesSaisi )
+          this.props.recuperLivre(this.state.titreSaisi, this.state.auteurSaisi, this.state.nbPagesSaisi );
+
+          this.setState({
+               titreSaisi: "",
+               auteurSaisi: "",
+               nbPagesSaisi: "",
+          })
      }
      render(){
           return(
@@ -20,7 +27,7 @@ class FormulairAdd extends Component {
                 <h2 className="text-center text-primary"  style={{fontFamily:'Sigmar One'}} >Affichage du formulaire </h2>
 
                 <div className="row justify-content-center">
-                    <div className="col-8">
+                    <div className="col">
                          <form>
                               <div className="form-group">
                               <label className="col-form-label" htmlFor="titre">Titre du livre:</label>
@@ -51,7 +58,9 @@ class FormulairAdd extends Component {
                               </div>
                               <div className="form-group row justify-content-center">
                                    {/* <button type="submit" className="col-4 btn btn-primary">Valider</button> */}
-                                   <Botton typeBtn="btn-primary" clic={this.handelValidationForm}> Valider </Botton>
+                                   <Botton typeBtn="btn-primary"
+                                             clic={this.handelValidationForm}
+                                             > Valider </Botton>
                               </div>
                          </form>
                          </div>
