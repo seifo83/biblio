@@ -9,6 +9,9 @@ class FormulairAdd extends Component {
           auteurSaisi: "",
           nbPagesSaisi: ""
      }
+     handelValidationForm = (event) => {
+          event.preventDefault()
+     }
      render(){
           return(
             <>
@@ -46,7 +49,7 @@ class FormulairAdd extends Component {
                               </div>
                               <div className="form-group row justify-content-center">
                                    {/* <button type="submit" className="col-4 btn btn-primary">Valider</button> */}
-                                   <Botton typeBtn="btn-primary"> Valider </Botton>
+                                   <Botton typeBtn="btn-primary" clic={this.handelValidationForm}> Valider </Botton>
                               </div>
                          </form>
                          </div>
