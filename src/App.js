@@ -7,7 +7,7 @@ import LivresComp from "./containers/Livres/LivresComp"
 class App extends Component {
 
   state ={
-    ajoutLivre : true 
+    ajoutLivre : false 
   }
 
   handleClickAjout = () => {
@@ -19,14 +19,16 @@ class App extends Component {
    render(){
       return( 
         <>
-          <TitreH1>Page Listant les livres</TitreH1>
-          <LivresComp InfoAjoutLivre= {this.state.ajoutLivre}/>
-          <Botton 
-            typeBtn ="btn-success" 
-            sizeBtn="w-100" 
-            clic = {this.handleClickAjout}>
-            {this.state.ajoutLivre ? "Ajouter" : "Fremer l'ajout"}
-            </Botton>
+          <div className="container">
+            <TitreH1>Page Listant les livres</TitreH1>
+            <LivresComp InfoAjoutLivre= {this.state.ajoutLivre}/>
+            <Botton 
+              typeBtn ="btn-success" 
+              sizeBtn="w-100" 
+              clic = {this.handleClickAjout}>
+              { !this.state.ajoutLivre ? "Ajouter" : "Fremer l'ajout"}
+              </Botton>
+            </div>
         </>
 
        );

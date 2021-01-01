@@ -36,38 +36,43 @@ class LivCompt extends Component {
             return( 
 
                <>
-               <table className= "table text-center">
-                    <thead className="thead-dark" >
-                         <tr>
-                              <th>Titre</th>
-                              <th>Auteur</th>
-                              <th>Nombre de pages</th>
-                              <th colSpan="2">Action</th>
-                         </tr>
-                    </thead>
-                    <tbody>
-                         {
-                              this.state.livres.map(livre => {
-                                   return(
-                                        <tr key={livre.id}>
-                                             <LivreComp
-                                                  titre = {livre.titre}
-                                                  auteur = {livre.auteur}
-                                                  nbPage = {livre.nbPage}
-                                                  suppression = {() => this.handleDeleteLivre(livre.id)}
+               <div className="row justify-content-center">
+                    <div className="col-8">
+                         <table className= "table table-responsive text-center">
+                              <thead className="thead-dark" >
+                                   <tr>
+                                        <th>Titre</th>
+                                        <th>Auteur</th>
+                                        <th>Nombre de pages</th>
+                                        <th colSpan="2">Action</th>
+                                   </tr>
+                              </thead>
+                              <tbody>
+                                   {
+                                        this.state.livres.map(livre => {
+                                             return(
+                                                  <tr key={livre.id}>
+                                                       <LivreComp
+                                                            titre = {livre.titre}
+                                                            auteur = {livre.auteur}
+                                                            nbPage = {livre.nbPage}
+                                                            suppression = {() => this.handleDeleteLivre(livre.id)}
 
-                                             />
+                                                       />
 
-                                            
-                                        </tr>
-                                   );
-                              })
-                         }
+                                                  
+                                                  </tr>
+                                             );
+                                        })
+                                   }
 
-                    </tbody>
-               </table>
-
-               { !this.props.InfoAjoutLivre  && <FormulairAjout />}
+                              </tbody>
+                         </table>
+                    </div>
+               </div>
+               
+               {/*  !this.props.InfoAjoutLivre  ? <FormulairAjout /> : null */}
+               { this.props.InfoAjoutLivre  && <FormulairAjout />}
           </>
 
              );
