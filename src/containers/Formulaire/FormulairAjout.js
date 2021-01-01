@@ -1,4 +1,6 @@
 import React, {Component}  from 'react';
+import Botton from '../../components/Bouton/BottonComp'
+
 
 class FormulairAdd extends Component {
 
@@ -43,7 +45,8 @@ class FormulairAdd extends Component {
                                       />
                               </div>
                               <div className="form-group row justify-content-center">
-                                   <button type="submit" className="col-4 btn btn-primary">Valider</button>
+                                   {/* <button type="submit" className="col-4 btn btn-primary">Valider</button> */}
+                                   <Botton typeBtn="btn-primary"> Valider </Botton>
                               </div>
                          </form>
                          </div>
