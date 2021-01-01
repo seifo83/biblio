@@ -1,6 +1,7 @@
 import React, {Component}  from 'react';
 import LivreComp from '../../components/Livre/LivreComp';
 import FormulairAjout from '../Formulaire/FormulairAjout';
+import FormulairModif from '../Formulaire/FormulairModif';
 
 
 
@@ -12,9 +13,9 @@ class LivCompt extends Component {
                {id:2, titre:"La France du 19ème", auteur: "Albert PATRICK", nbPages: 500},
                {id:3, titre:"Le monde des animaux", auteur: "Marc MERLIN", nbPages: 250},
                {id:4, titre:"Le Virus d'Asie", auteur: "Tya MILO", nbPages: 120},
-  
           ],
           lastIdLivre : 4,
+          IdModifBook: 0,
       }
 
       //1-  fonction pour supprimer un livre 
@@ -57,6 +58,37 @@ class LivCompt extends Component {
       }
 
 
+      handelModifLivre = (id, titre, auteur, nbPages) => {
+          //  console.log(id);
+          // console.log(titre);
+          // console.log(auteur);
+          // console.log(nbPages);
+
+          const caseLivre = this.state.livres.findIndex(ligne =>{
+               return ligne.id === id;
+
+          })
+
+          const newBook = {
+               id: id,
+               titre: titre,
+               auteur: auteur,
+               nbPages: nbPages
+          };
+
+          const newTablivres = [...this.state.livres];
+          newTablivres[caseLivre] = newBook
+
+          this.setState({
+               livres : newTablivres,
+               IdModifBook: 0
+          })
+
+
+
+      }
+
+
       render(){
             return( 
 
@@ -75,19 +107,33 @@ class LivCompt extends Component {
                               <tbody>
                                    {
                                         this.state.livres.map(livre => {
+                                             if(livre.id !== this.state.IdModifBook){
                                              return(
                                                   <tr key={livre.id}>
                                                        <LivreComp
                                                             titre = {livre.titre}
                                                             auteur = {livre.auteur}
-                                                            nbPage = {livre.nbPage}
+                                                            nbPage = {livre.nbPages}
                                                             suppression = {() => this.handleDeleteLivre(livre.id)}
+                                                            modification = {() =>this.setState({IdModifBook :livre.id })}
 
                                                        />
-
-                                                  
                                                   </tr>
                                              );
+                                             }else{
+                                                  return( 
+                                                       <tr key={livre.id}>
+
+                                                            <FormulairModif
+                                                                 id = {livre.id}
+                                                                 titre = {livre.titre}
+                                                                 auteur = {livre.auteur}
+                                                                 nbPage = {livre.nbPages}
+                                                                 recuperModifBook={this.handelModifLivre}
+                                                            />
+                                                       </tr>
+                                                  
+                                                  )}
                                         })
                                    }
 
@@ -95,9 +141,8 @@ class LivCompt extends Component {
                          </table>
                     </div>
                </div>
-               
                {/*  !this.props.InfoAjoutLivre  ? <FormulairAjout /> : null */}
-               { this.props.InfoAjoutLivre  && <FormulairAjout recuperLivre={this.handleAddLivre} />}
+               { this.props.InfoAjoutLivre && <FormulairAjout recuperLivre={this.handleAddLivre} />}
           </>
 
              );

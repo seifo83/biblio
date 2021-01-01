@@ -9,7 +9,7 @@ class FormulairAdd extends Component {
           auteurSaisi: "",
           nbPagesSaisi: "",
 
-     }
+     };
      handelValidationForm = (event) => {
           event.preventDefault();
           console.log(this.state.titreSaisi + " " + this.state.auteurSaisi + " " + this.state.nbPagesSaisi   );

@@ -23,8 +23,8 @@ class App extends Component {
             <TitreH1>Page Listant les livres</TitreH1>
             <LivresComp InfoAjoutLivre= {this.state.ajoutLivre} FermerFormuliare= {()=> this.setState({ajoutLivre:false})}/>
             <Botton 
-              typeBtn ="btn-success" 
-              sizeBtn="w-100" 
+              typeBtn ="btn-success"
+              sizeBtn="w-100"
               clic = {this.handleClickAjout}>
               { !this.state.ajoutLivre ? "Ajouter" : "Fremer l'ajout"}
               </Botton>
