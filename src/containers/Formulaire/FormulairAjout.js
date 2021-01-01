@@ -10,7 +10,9 @@ class FormulairAdd extends Component {
           nbPagesSaisi: ""
      }
      handelValidationForm = (event) => {
-          event.preventDefault()
+          event.preventDefault();
+          console.log(this.state.titreSaisi + " " + this.state.auteurSaisi + " " + this.state.nbPagesSaisi   );
+          this.props.recuperLivre(this.state.titreSaisi, this.state.auteurSaisi, this.state.nbPagesSaisi )
      }
      render(){
           return(

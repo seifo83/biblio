@@ -16,21 +16,27 @@ class LivCompt extends Component {
           ]
       }
 
-
+      //1-  fonction pour supprimer un livre 
       handleDeleteLivre = (id) => {
            //console.log("suppression" + id);
            const livreInxdexTab = this.state.livres.findIndex(ligne =>{
                 return ligne.id === id;
 
            })
-
-           //console.log(livreInxdexTab);
+          //console.log(livreInxdexTab);`
 
            const newlivres = [...this.state.livres];
            newlivres.splice(livreInxdexTab, 1);
 
            this.setState({livres:newlivres});
       }
+      //2- fonction pour rajouter un livre à partir d'un formuliare 
+      handleAddLivre = (titre, auteur, nbPages) => {
+           console.log(titre);
+           console.log(auteur);
+           console.log(nbPages);
+      }
+
 
       render(){
             return( 
@@ -72,7 +78,7 @@ class LivCompt extends Component {
                </div>
                
                {/*  !this.props.InfoAjoutLivre  ? <FormulairAjout /> : null */}
-               { this.props.InfoAjoutLivre  && <FormulairAjout />}
+               { this.props.InfoAjoutLivre  && <FormulairAjout recuperLivre={this.handleAddLivre} />}
           </>
 
              );
