@@ -13,7 +13,8 @@ class LivCompt extends Component {
                {id:3, titre:"Le monde des animaux", auteur: "Marc MERLIN", nbPages: 250},
                {id:4, titre:"Le Virus d'Asie", auteur: "Tya MILO", nbPages: 120},
   
-          ]
+          ],
+          lastIdLivre : 4,
       }
 
       //1-  fonction pour supprimer un livre 
@@ -35,6 +36,22 @@ class LivCompt extends Component {
            console.log(titre);
            console.log(auteur);
            console.log(nbPages);
+           const newBook = {
+                    id: this.state.lastIdLivre + 1,
+                    titre: titre,
+                    auteur: auteur,
+                    nbPages: nbPages
+               };
+               const newTablivres = [...this.state.livres];
+               newTablivres.push(newBook);
+               this.setState((oldState, props)=> {
+                    return{
+                         livres:newTablivres,
+                         lastIdLivre: oldState.lastIdLivre + 1
+
+                    }
+               });
+
       }
 
 

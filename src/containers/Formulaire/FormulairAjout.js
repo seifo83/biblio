@@ -23,7 +23,7 @@ class FormulairAdd extends Component {
                     <div className="col-8">
                          <form>
                               <div className="form-group">
-                              <label className="col-form-label" for="titre">Titre du livre:</label>
+                              <label className="col-form-label" htmlFor="titre">Titre du livre:</label>
                               <input type="text " 
                                       className="form-control" 
                                       id="titre"
@@ -32,7 +32,7 @@ class FormulairAdd extends Component {
                                       />
                               </div>
                               <div className="form-group">
-                              <label className="col-form-label" for="auteur">Auteur de livre:</label>
+                              <label className="col-form-label" htmlFor="auteur">Auteur de livre:</label>
                               <input type="text "
                                       className="form-control"
                                       id="auteur"
@@ -41,7 +41,7 @@ class FormulairAdd extends Component {
                                       />
                               </div>
                               <div className="form-group">
-                              <label className="col-form-label" for="nbPages">Nombre de pages:</label>
+                              <label className="col-form-label" htmlFor="nbPages">Nombre de pages:</label>
                               <input type="number"
                                       className="form-control"
                                       id="nbPages"
