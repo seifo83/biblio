@@ -2,6 +2,8 @@ import React, {Component}  from 'react';
 import LivreComp from '../../components/Livre/LivreComp';
 import FormulairAjout from '../Formulaire/FormulairAjout';
 import FormulairModif from '../Formulaire/FormulairModif';
+import Alert from '../../components/Alert/AlertComp';
+
 
 
 
@@ -16,6 +18,7 @@ class LivCompt extends Component {
           ],
           lastIdLivre : 4,
           IdModifBook: 0,
+          alertSMS: null,
       }
 
       //1-  fonction pour supprimer un livre 
@@ -30,7 +33,13 @@ class LivCompt extends Component {
            const newlivres = [...this.state.livres];
            newlivres.splice(livreInxdexTab, 1);
 
-           this.setState({livres:newlivres});
+           this.setState({
+                livres:newlivres,
+                alertSMS: {
+                    message : "suppression éffectuer",
+                    type: "alert-danger"
+               }
+               });
       }
       //2- fonction pour rajouter un livre à partir d'un formuliare 
       handleAddLivre = (titre, auteur, nbPages) => {
@@ -48,7 +57,11 @@ class LivCompt extends Component {
                this.setState((oldState, props)=> {
                     return{
                          livres:newTablivres,
-                         lastIdLivre: oldState.lastIdLivre + 1
+                         lastIdLivre: oldState.lastIdLivre + 1,
+                         alertSMS:{
+                              message : "Livre Rajouter avec succée",
+                              type: "alert-success"
+                         } 
 
                     }
                });
@@ -81,7 +94,11 @@ class LivCompt extends Component {
 
           this.setState({
                livres : newTablivres,
-               IdModifBook: 0
+               IdModifBook: 0,
+               alertSMS: {
+                    message : "modifictaion éffectuer",
+                    type: "alert-warning"
+               }
           })
 
 
@@ -93,6 +110,7 @@ class LivCompt extends Component {
             return( 
 
                <>
+               {this.state.alertSMS && <Alert typeAlert = {this.state.alertSMS.type}> {this.state.alertSMS.message}</Alert>}
                <div className="row justify-content-center">
                     <div className="col">
                          <table className= "table text-center">
