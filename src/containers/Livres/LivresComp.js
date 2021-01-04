@@ -71,7 +71,7 @@ class LivCompt extends Component {
       }
 
 
-      handelModifLivre = (id, titre, auteur, nbPages) => {
+      handleModifLivre = (id, titre, auteur, nbPages) => {
           //  console.log(id);
           // console.log(titre);
           // console.log(auteur);
@@ -147,7 +147,7 @@ class LivCompt extends Component {
                                                                  titre = {livre.titre}
                                                                  auteur = {livre.auteur}
                                                                  nbPage = {livre.nbPages}
-                                                                 recuperModifBook={this.handelModifLivre}
+                                                                 recuperModifBook={this.handleModifLivre}
                                                             />
                                                        </tr>
                                                   
